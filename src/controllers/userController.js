@@ -23,6 +23,17 @@ const crearUsuario = async (req,res) => {
             return res.status(400).json({ errores: resultado.array() })
         }
 
+        // Verificar si el email ya existe en la base de datos
+        const verificarEmail = await prisma.users.findUnique({
+            where: {
+                email
+            }
+        })
+
+        if (verificarEmail) {
+            return res.status(400).json({ message: "El email ya esta registrado" })
+        }
+
         // SaltRounds
         const salt = await bcrypt.genSalt(10)
 
