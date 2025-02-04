@@ -7,7 +7,7 @@ import { verificarToken } from "../middlewares/token.js";
 
 const router = express.Router();
 
-router.get('/auth', autenticar);
+router.post('/auth', autenticar);
 router.post('/createUser', crearUsuario)
 
 // Valida la session del usuario con token en cookie
