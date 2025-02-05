@@ -97,6 +97,10 @@ const autenticar = async (req, res) => {
             }
         })
 
+        if (!usuario) {
+            return res.status(400).json({ message: "El usuario no existe" })
+        }
+
         // Comparar el password
         const passwordCompare = await bcrypt.compare(password, usuario.password)
 
