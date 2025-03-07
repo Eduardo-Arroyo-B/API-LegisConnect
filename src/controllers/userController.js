@@ -113,7 +113,12 @@ const autenticar = async (req, res) => {
         const token = await jwt.sign({ id: usuario.id, name: usuario.name }, process.env.JWT_SECRET, { expiresIn: '1d' })
 
         return res
-            .cookie('token', token)
+            .cookie('token', token, {
+                httpOnly: true, // No accesible desde JS
+                secure: true, // Solo HTTPS
+                signed: true,
+                path: '/',
+            })
             .status(200)
             .json(usuario)
 
