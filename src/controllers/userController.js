@@ -115,7 +115,7 @@ const autenticar = async (req, res) => {
         return res
             .cookie('token', token, {
                 httpOnly: true, // No accesible desde JS
-                secure: false, // Solo HTTPS
+                secure: true, // Solo HTTPS
                 signed: true,
                 path: '/',
             })
