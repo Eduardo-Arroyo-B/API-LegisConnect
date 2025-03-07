@@ -120,7 +120,7 @@ const autenticar = async (req, res) => {
                 path: '/',
             })
             .status(200)
-            .json(usuario, token)
+            .json(usuario)
 
     } catch (error) {
         res.status(400).json({ errores: error.message })
