@@ -117,7 +117,6 @@ const autenticar = async (req, res) => {
                 httpOnly: true, // No accesible desde JS
                 secure: false, // Solo HTTPS
                 signed: true,
-                sameSite: 'Lax', // Compatible con multiples pestañas y CSRF seguro
                 path: '/',
             })
             .status(200)
