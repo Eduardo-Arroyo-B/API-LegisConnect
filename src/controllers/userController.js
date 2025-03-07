@@ -117,9 +117,10 @@ const autenticar = async (req, res) => {
                 httpOnly: true, // No accesible desde JS
                 secure: true, // Solo HTTPS
                 signed: true,
+                path: '/',
             })
             .status(200)
-            .json({usuario, token })
+            .json(usuario)
 
     } catch (error) {
         res.status(400).json({ errores: error.message })
