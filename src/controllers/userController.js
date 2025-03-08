@@ -118,7 +118,7 @@ const autenticar = async (req, res) => {
                 secure: false, // Solo HTTPS / Desactivada para localhost
                 signed: true, // Firma las cookies
                 path: '/',
-                sameSite: "lax"
+                sameSite: "none"
             })
             .status(200)
             .json(usuario)
