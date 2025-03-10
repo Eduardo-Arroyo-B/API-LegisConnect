@@ -128,7 +128,21 @@ const autenticar = async (req, res) => {
     }
 }
 
+const cerrarSession = (req,res) => {
+
+    try {
+        // Se elimina la cookie en el front
+        res.clearCookie('token', {path: "/", secure: true, sameSite: 'Lax'})
+
+        // Manda mensaje que se elimino correctamente
+        return res.json({ message: "Session cerrada exitosamente" })
+    } catch (error) {
+        res.status(400).json({ errores: error.message })
+    }
+}
+
 export {
     crearUsuario,
-    autenticar
+    autenticar,
+    cerrarSession
 }
