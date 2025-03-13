@@ -12,7 +12,7 @@ app.set('port', process.env.PORT || 3000)
 
 // Middlewares
 app.use(cors({
-    origin: " http://localhost:5174",
+    origin: "http://localhost:5174",
     credentials: true,
 }))
 app.use(express.json())
