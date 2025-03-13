@@ -3,6 +3,7 @@ import cors from 'cors'
 import userRoutes from './routes/userRoutes.js'
 import proposalRoutes from './routes/propuestasRoutes.js'
 import cookieParser from "cookie-parser";
+import legislacionRoutes from "./routes/legislacionRoutes.js";
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use(cookieParser(process.env.SECRET_TOKEN));
 // Rutas
 app.use('/users', userRoutes)
 app.use('/proposals', proposalRoutes)
+app.use('/legislacion', legislacionRoutes)
 app.use('/serverAlive', (req, res) => {
     res.send(`Server is alive on port: ${app.get('port')}`)
 })
