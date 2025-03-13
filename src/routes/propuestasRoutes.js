@@ -8,7 +8,7 @@ import { verificarToken } from "../middlewares/token.js";
 const router = express.Router();
 
 router.get('/getProposals', obtenerPropuesta);
-router.get('/getProposals/:id', obtenerPropuestasUsuario);
+router.get('/getProposalsUser/:id', obtenerPropuestasUsuario);
 router.post('/createProposal', verificarToken, crearPropuesta)
 
 export default router;
