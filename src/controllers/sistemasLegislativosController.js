@@ -108,5 +108,10 @@ const periodos = async (req,res) => {
 }
 
 export {
-    proyecto
+    proyecto,
+    ley,
+    parlamentario,
+    comisiones,
+    sesiones,
+    periodos,
 }
