@@ -9,7 +9,7 @@ const app = express()
 
 
 // Configuracion de los puertos
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 3001)
 
 // Middlewares
 app.use(cors({
