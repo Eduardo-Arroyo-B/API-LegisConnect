@@ -1,5 +1,3 @@
-import error from "jsonwebtoken/lib/JsonWebTokenError.js";
-
 const proyecto = async (req,res) => {
 
     const url = 'https://datos.congreso.gov.py/opendata/api/data/proyecto'
