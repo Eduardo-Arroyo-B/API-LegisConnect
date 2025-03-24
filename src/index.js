@@ -10,11 +10,23 @@ const app = express()
 // Configuracion de los puertos
 app.set('port', process.env.PORT || 3000)
 
+const allowedOrigins = [
+    "https://legisconnect-production.up.railway.app",
+    "http://localhost:5173",
+]
+
 // Middlewares
 app.use(cors({
-    origin: "https://legisconnect-production.up.railway.app",
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(new Error('No permitido por CORS'))
+        }
+    },
     credentials: true,
 }))
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser(process.env.SECRET_TOKEN));
