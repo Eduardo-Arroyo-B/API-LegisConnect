@@ -12,7 +12,10 @@ app.set('port', process.env.PORT || 3000)
 
 // Middlewares
 app.use(cors({
-    origin: "https://legisconnect-production.up.railway.app",
+    origin: [
+        "https://legisconnect-production.up.railway.app",
+        "http://localhost:5173",
+    ],
     credentials: true,
 }))
 app.use(express.json())
