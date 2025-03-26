@@ -116,7 +116,7 @@ const autenticar = async (req, res) => {
             .cookie('token', token, {
                 Expires: new Date(Date.now() + 86400000),
                 httpOnly: true, // No accesible desde JS
-                secure: true, // Solo HTTPS / Desactivada para localhost
+                secure: false, // Solo HTTPS / Desactivada para localhost
                 signed: true, // Firma las cookies
                 path: '/',
                 sameSite: "none"
