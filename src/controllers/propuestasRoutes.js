@@ -43,7 +43,6 @@ const crearPropuesta = async (req, res) => {
 
 const obtenerPropuesta = async (req, res) => {
 
-
     try {
         const traerPropuestas = await prisma.propuestas.findMany()
 
@@ -53,7 +52,30 @@ const obtenerPropuesta = async (req, res) => {
     }
 }
 
+
+const obtenerPropuestasUsuario = async (req, res) => {
+
+    const { id } = req.params
+
+    // Convertir a tipo numero (Viene en tipo string)
+    const IDNumber = Number(id)
+
+    try {
+        const buscarPropuestaUsuario = await prisma.propuestas.findMany({
+            where: {
+                autorId: IDNumber
+            }
+        })
+
+        return res.status(200).json(buscarPropuestaUsuario)
+    } catch (error) {
+        res.status(400).json({ errores: error.message })
+    }
+}
+
+
 export {
     crearPropuesta,
-    obtenerPropuesta
+    obtenerPropuesta,
+    obtenerPropuestasUsuario
 }
